@@ -1,19 +1,19 @@
-import unittest
+#!/usr/bin/python3
+""" """
+from tests.test_models.test_base_model import test_basemodel
 from models.state import State
 
 
-class TestState(unittest.TestCase):
-    def test_state_name_default_value(self):
-        """Test that the default value of the state name is an empty string."""
-        state = State()
-        self.assertEqual(state.name, "")
+class test_state(test_basemodel):
+    """ """
 
-    def test_state_name_assignment(self):
-        """Test that the state name can be assigned correctly."""
-        state = State()
-        state.name = "California"
-        self.assertEqual(state.name, "California")
+    def __init__(self, *args, **kwargs):
+        """ """
+        super().__init__(*args, **kwargs)
+        self.name = "State"
+        self.value = State
 
-
-if __name__ == '__main__':
-    unittest.main()
+    def test_name3(self):
+        """ """
+        new = self.value()
+        self.assertEqual(type(new.name), str)
